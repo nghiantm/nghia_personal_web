@@ -1,8 +1,8 @@
 import React from "react";
-import { AppBar, Box, ButtonBase, CssBaseline, Menu, MenuItem, Toolbar, Typography, useTheme } from "@mui/material";
+import { AppBar, Box, ButtonBase, CssBaseline, Toolbar, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import MenuIcon from '@mui/icons-material/Menu';
+import DropMenu from "./DropMenu";
 
 const LoggedOutView = () => {
     const theme = useTheme();
@@ -20,10 +20,18 @@ const LoggedOutView = () => {
             flexGrow: 1,
         },
         logoButton: {
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            borderRadius: '8px',
+            "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                borderRadius: "8px"
+            }
         },
         button: {
-            px: 16/8
+            px: 16/8,
+            borderRadius: '8px',
+            "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                borderRadius: "8px"
+            }
         },
         inactiveText: {
             color: '#878787',
@@ -32,28 +40,7 @@ const LoggedOutView = () => {
                 color: '#000'
             }
         },
-        menuText: {
-
-        }
     }
-
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
 
     return (
         <>
@@ -71,11 +58,19 @@ const LoggedOutView = () => {
 
                         {/* display all buttons when larger than 600px width */}
                         <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
-                            <ButtonBase sx={styles.button}>
+                            <ButtonBase
+                                LinkComponent={Link}
+                                to='/blog'
+                                sx={styles.button}
+                            >
                                 <Typography variant='h2' sx={styles.inactiveText}>Blog</Typography>
                             </ButtonBase>
 
-                            <ButtonBase sx={styles.button}>
+                            <ButtonBase 
+                                LinkComponent={Link}
+                                to='/project'
+                                sx={styles.button}
+                            >
                                 <Typography variant='h2' sx={styles.inactiveText}>Project</Typography>
                             </ButtonBase>
                         </Box>
@@ -85,45 +80,7 @@ const LoggedOutView = () => {
                         </ButtonBase>
 
                         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                            <ButtonBase 
-                                onClick={handleOpenNavMenu}
-                                sx={styles.button}
-                            >
-                                <MenuIcon sx={styles.inactiveText}/>
-                            </ButtonBase>
-
-                            <Menu
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'right',
-                                }}
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', sm: 'none' },
-                                }}
-                            >
-                                <MenuItem 
-                                    component={Link}
-                                    to='/blog'
-                                    onClick={handleCloseNavMenu}
-                                >
-                                    <Typography variant='h3' sx={styles.menuText}>Blog</Typography>
-                                </MenuItem>
-
-                                <MenuItem 
-                                    component={Link}
-                                    to='/project'
-                                >
-                                    <Typography variant='h3' sx={styles.menuText}>Project</Typography>
-                                </MenuItem>
-                            </Menu>
+                            <DropMenu />
                         </Box>
                 </Toolbar>
             </AppBar>

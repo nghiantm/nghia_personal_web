@@ -10,8 +10,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material'
 import theme from './styles/theme.js'
 
-console.log(theme);
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
