@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-const theme = createTheme({
+const darkTheme = createTheme({
   typography: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
       h1: {
@@ -25,14 +25,15 @@ const theme = createTheme({
       },
   },
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#fafafa',
-      contrastText: '#000'
+      main: '#101217',
+      contrastText: '#fff'
     },
     background: {
-      default: '#fafafa'
+      default: '#101217'
     }
   },
 })
 
-export default theme;
+export default darkTheme;
