@@ -30,7 +30,7 @@ const Home = () => {
             <Grid container justifyContent={'flex-start'}>
                 <Grid item xs={12} sm={9} md={7} sx={styles.introItem}>
                     <Typography variant='h1' align='left' sx={styles.introText}>
-                        <span style={styles.span}>Hi, I am Nghia</span>, I live in Philly, USA. I am a software engineer experimenting with <span style={styles.span}>Web Technologies</span>.
+                        <span style={styles.span}>Hi, I am Nghia</span>. I live in Philly, USA. I am a software engineer experimenting with <span style={styles.span}>Web Technologies</span>.
                     </Typography>
                 </Grid>
             </Grid>

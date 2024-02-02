@@ -2,11 +2,20 @@ import React from "react";
 import { AppBar, Box, ButtonBase, CssBaseline, Toolbar, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import DropMenu from "./DropMenu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../../redux/slices/themeSlice";
 
 const LoggedOutView = () => {
+    const dispatch = useDispatch();
+    const handleChangeTheme = () => {
+        dispatch(changeTheme());
+    }
+
+    // light or dark mode
+    const mode = useSelector((theme) => theme.theme);
+
     const theme = useTheme();
     const styles = {
         appBar: {
@@ -36,17 +45,12 @@ const LoggedOutView = () => {
             }
         },
         inactiveText: {
-            color: '#878787',
+            color: mode === 'light' ? '#878787' : '#949496',
             transition: 'color 0.3s ease',
             "&:hover": {
-                color: '#000'
+                color: mode === 'light' ? '#000' : '#fff'
             }
         },
-    }
-
-    const dispatch = useDispatch();
-    const handleChangeTheme = () => {
-        dispatch(changeTheme());
     }
 
     return (
@@ -86,7 +90,10 @@ const LoggedOutView = () => {
                             onClick={handleChangeTheme}
                             sx={styles.button}
                         >
-                            <DarkModeIcon sx={styles.inactiveText}/>
+                            { mode === 'light' 
+                                ? <DarkModeIcon sx={styles.inactiveText}/>
+                                : <LightModeIcon sx={styles.inactiveText}/>
+                            }
                         </ButtonBase>
 
                         <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
