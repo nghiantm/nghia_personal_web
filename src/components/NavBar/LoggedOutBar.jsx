@@ -3,6 +3,8 @@ import { AppBar, Box, ButtonBase, CssBaseline, Toolbar, Typography, useTheme } f
 import { Link } from "react-router-dom";
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import DropMenu from "./DropMenu";
+import { useDispatch } from "react-redux";
+import { changeTheme } from "../../redux/slices/themeSlice";
 
 const LoggedOutView = () => {
     const theme = useTheme();
@@ -42,6 +44,11 @@ const LoggedOutView = () => {
         },
     }
 
+    const dispatch = useDispatch();
+    const handleChangeTheme = () => {
+        dispatch(changeTheme());
+    }
+
     return (
         <>
             <AppBar sx={styles.appBar}>
@@ -75,7 +82,10 @@ const LoggedOutView = () => {
                             </ButtonBase>
                         </Box>
 
-                        <ButtonBase sx={styles.button}>
+                        <ButtonBase
+                            onClick={handleChangeTheme}
+                            sx={styles.button}
+                        >
                             <DarkModeIcon sx={styles.inactiveText}/>
                         </ButtonBase>
 

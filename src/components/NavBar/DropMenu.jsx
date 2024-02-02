@@ -12,8 +12,6 @@ const DropMenu = () => {
                 color: '#000'
             }
         },
-        menuText: {
-        }
     }
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
