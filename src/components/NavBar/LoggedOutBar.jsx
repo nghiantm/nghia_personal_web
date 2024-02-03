@@ -1,11 +1,14 @@
 import React from "react";
-import { AppBar, Box, ButtonBase, CssBaseline, Toolbar, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DropMenu from "./DropMenu";
+// redux
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../../redux/slices/themeSlice";
+// MUI
+import { AppBar, Box, ButtonBase, CssBaseline, Toolbar, Typography, useTheme } from "@mui/material";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+// routing
+import { Link } from "react-router-dom";
+import DropMenu from "./DropMenu";
 
 const LoggedOutView = () => {
     const dispatch = useDispatch();

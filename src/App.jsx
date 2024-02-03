@@ -9,9 +9,30 @@ import Blog from './routes/Blog'
 import Project from './routes/Project'
 import Home from './routes/Home'
 import NavBar from './components/NavBar/NavBar'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { setTheme } from './redux/slices/themeSlice.js'
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  // init theme to previous selected
+  /*
+    NEED FIXING!!!!!!!
+    This is my attempt to limit the flashbang. 
+    Now instead of light then immidiately dark, it stops at light a bit.
+  */
+  useEffect(() => {
+    const delay = 400;
+
+    const timerId = setTimeout(() => {
+      dispatch(setTheme(localStorage.getItem('theme')));
+    }, delay);
+
+    // Clean up the timer to avoid memory leaks
+    return () => clearTimeout(timerId);
+  }, [])  
+
   const mode = useSelector((theme) => theme.theme);
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
