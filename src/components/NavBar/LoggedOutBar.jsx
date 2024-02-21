@@ -9,12 +9,15 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 // routing
 import { Link } from "react-router-dom";
 import DropMenu from "./DropMenu";
+import { toggleTheme } from "../../redux/actions/themeAction";
 
-const LoggedOutView = () => {
+const LoggedOutView = ({pathname}) => {
     const dispatch = useDispatch();
     const handleChangeTheme = () => {
-        dispatch(changeTheme());
+        dispatch(toggleTheme());
     }
+
+    console.log(pathname);
 
     // light or dark mode
     const mode = useSelector((theme) => theme.theme);
@@ -41,7 +44,7 @@ const LoggedOutView = () => {
             }
         },
         button: {
-            px: 16/8,
+            px: 14/8,
             borderRadius: '8px',
             "& .MuiTouchRipple-root .MuiTouchRipple-child": {
                 borderRadius: "8px"
@@ -72,6 +75,7 @@ const LoggedOutView = () => {
 
                         {/* display all buttons when larger than 600px width */}
                         <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                            {/*
                             <ButtonBase
                                 LinkComponent={Link}
                                 to='/blog'
@@ -79,6 +83,7 @@ const LoggedOutView = () => {
                             >
                                 <Typography variant='h2' sx={styles.inactiveText}>Blog</Typography>
                             </ButtonBase>
+                            */}
 
                             <ButtonBase 
                                 LinkComponent={Link}

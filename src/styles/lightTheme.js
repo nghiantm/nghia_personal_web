@@ -1,11 +1,11 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
-const lightTheme = createTheme({
+let lightTheme = createTheme({
   typography: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
       h1: {
-        fontSize: '52px',
-        fontWeight: 300
+        fontSize: '3.25rem',
+        fontWeight: 300,
       },
       h2: {
         fontSize: '1.375rem',
@@ -24,6 +24,20 @@ const lightTheme = createTheme({
         fontWeight: 400
       },
   },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: "#0066cc",
+          textDecorationColor: "#0066cc",
+          ":hover, :focus": {
+            color: "#003d7a",
+            textDecorationColor: "#003d7a",
+          }
+        }
+      }
+    }
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -35,5 +49,13 @@ const lightTheme = createTheme({
     }
   },
 })
+
+lightTheme = responsiveFontSizes(
+  lightTheme, 
+  {
+    breakpoints: ['sm', 'lg'],
+    factor: 3
+  }
+);
 
 export default lightTheme;

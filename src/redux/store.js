@@ -4,7 +4,7 @@ import themeSlice from './slices/themeSlice';
 
 export const store = configureStore({
     reducer: {
-        blogs: blogsSlice,
+        blog: blogsSlice,
         theme: themeSlice
     }
 })

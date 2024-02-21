@@ -1,26 +1,13 @@
-import { Box, Container, CssBaseline, Grid, Typography, useTheme } from "@mui/material";
+import { CssBaseline, Grid, Typography, useTheme } from "@mui/material";
 import React from "react";
 
 const Home = () => {
-    const theme = useTheme();
-
     const styles = {
-        introText: {
-            [theme.breakpoints.down('sm')]: {
-                fontSize: '28px'
-            },
-            [theme.breakpoints.between('sm', 'lg')]: {
-                fontSize: '38px'
-            },
-            [theme.breakpoints.up('lg')]: {
-                fontSize: '52px'
-            },
-        },
         span: {
             fontWeight: 700
         },
         introItem: {
-            mt: '100px'
+            mt: '6.25rem'
         }
     }
 

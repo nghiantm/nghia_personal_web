@@ -1,8 +1,11 @@
+import { useLocation } from "react-router";
 import LoggedOutView from "./LoggedOutBar";
 
 const NavBar = () => {
+    const location = useLocation();
+
     return (
-        <LoggedOutView />
+        <LoggedOutView pathname={location.pathname}/>
     )
 }
 

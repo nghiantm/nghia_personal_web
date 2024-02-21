@@ -12,7 +12,7 @@ const themeSlice = createSlice({
         setTheme(state, action) {
             localStorage.setItem('theme', action.payload);
             return action.payload;
-        }
+        },
     }
 })
 

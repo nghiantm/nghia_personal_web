@@ -1,6 +1,6 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
-const darkTheme = createTheme({
+let darkTheme = createTheme({
   typography: {
       fontFamily: '-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif',
       h1: {
@@ -24,6 +24,20 @@ const darkTheme = createTheme({
         fontWeight: 400
       },
   },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: '#66b2ff',
+          textDecorationColor: '#66b2ff',
+          ":hover, :focus": {
+            color: "#a3d0ff",
+            textDecorationColor: "#a3d0ff",
+          }
+        }
+      }
+    }
+  },
   palette: {
     mode: 'dark',
     primary: {
@@ -35,5 +49,13 @@ const darkTheme = createTheme({
     }
   },
 })
+
+darkTheme = responsiveFontSizes(
+  darkTheme, 
+  {
+    breakpoints: ['sm', 'lg'],
+    factor: 3
+  }
+);
 
 export default darkTheme;

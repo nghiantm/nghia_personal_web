@@ -1,8 +1,9 @@
-// MUI
+// styles
 import { Container, CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material'
-import lightTheme from './styles/lightTheme.js'
 import darkTheme from './styles/darkTheme.js'
+import lightTheme from './styles/lightTheme.js'
+import "./styles/index.css"
 // routes
 import { Route, Routes } from 'react-router'
 import Blog from './routes/Blog'
@@ -17,20 +18,8 @@ const App = () => {
   const dispatch = useDispatch();
 
   // init theme to previous selected
-  /*
-    NEED FIXING!!!!!!!
-    This is my attempt to limit the flashbang. 
-    Now instead of light then immidiately dark, it stops at light a bit.
-  */
   useEffect(() => {
-    const delay = 400;
-
-    const timerId = setTimeout(() => {
-      dispatch(setTheme(localStorage.getItem('theme')));
-    }, delay);
-
-    // Clean up the timer to avoid memory leaks
-    return () => clearTimeout(timerId);
+    dispatch(setTheme(localStorage.getItem('theme')));
   }, [])  
 
   const mode = useSelector((theme) => theme.theme);
