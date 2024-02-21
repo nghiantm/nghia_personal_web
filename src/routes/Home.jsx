@@ -33,7 +33,7 @@ const Home = () => {
 
                 <Grid item xs={12} sm={9} sx={styles.avatarItem}>
                     <Img 
-                        src={'src/assets/nghia.jpeg'}
+                        src={'https://nghia-web.s3.amazonaws.com/nghia.jpeg'}
                         width={"46"}
                         style={{borderRadius: 25}}
                     />
