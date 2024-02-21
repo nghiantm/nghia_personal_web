@@ -1,24 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPortfolioAsync } from "../redux/actions/blogsAction";
 // styles
 import MyMarkdown from "../components/Markdown/MyMarkdown";
 import MyLoading from "../components/MyLoading";
 import { Typography } from "@mui/material";
+import TagSelector from "../components/Project/TagSelector";
 
 const Project = () => {
+    const dispatch = useDispatch();
     const loading = useSelector((state) => state.blog.loading);
     const portfolio = useSelector((state) => state.blog.portfolio);
     const error = useSelector((state) => state.blog.error);
 
-    const dispatch = useDispatch();
+    const [selectedTag, setTag] = useState('All');
+    const filteredPortfolio = selectedTag === 'All' 
+        ? portfolio 
+        : portfolio.filter(item => item.tags.includes(selectedTag));
 
     useEffect(() => {
         if (!portfolio.length)
             dispatch(getPortfolioAsync());
     }, [])
 
-    return (!loading && portfolio.length && portfolio[0]) ? (
+    return (!loading && filteredPortfolio.length && filteredPortfolio[0]) ? (
         <>
             <MyMarkdown content={"## Welcome to my \`portfolio\`!"}/>
             <Typography variant="body1">My name is Nghia Nguyen, and this is what I'm doing:</Typography>
@@ -28,9 +33,16 @@ const Project = () => {
                 <li><Typography>I have experiences in front-end development, specifially with web-app. I am striving to become a full-stack developer in the near future</Typography></li>
                 <li><Typography>I developed impactful softwares in various fields, from financial to home security</Typography></li>
             </ul>
-            <MyMarkdown content={"## Computer Science Projects I did at Drexel"} />
+            <MyMarkdown content={"## CS Projects I did at Drexel"} />
+
+            <TagSelector 
+                tagList={['All', 'JavaScript', 'Python', 'C#', 'Swift']}
+                currentTag={selectedTag}
+                tagHandler={setTag}
+            />
+
             {
-                portfolio.map((item, index) => {
+                filteredPortfolio.map((item, index) => {
                     return (
                         <MyMarkdown key={index} content={item.content} />
                     )

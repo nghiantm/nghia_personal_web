@@ -1,6 +1,9 @@
-import { CssBaseline, Grid, Typography, useTheme } from "@mui/material";
+import { Box, ButtonBase, CssBaseline, Grid, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { Img } from "react-image";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const styles = {
@@ -17,7 +20,11 @@ const Home = () => {
         },
         avatarText: {
             ml: '1rem',
-            color: '#73737d'
+            color: '#73737d',
+            flexGrow: '1'
+        },
+        icon: {
+            mr: '1rem',
         }
     }
 
@@ -31,7 +38,7 @@ const Home = () => {
                     </Typography>
                 </Grid>
 
-                <Grid item xs={12} sm={9} sx={styles.avatarItem}>
+                <Grid item xs={12} sx={styles.avatarItem}>
                     <Img 
                         src={'https://nghia-web.s3.amazonaws.com/nghia.jpeg'}
                         width={"46"}
@@ -39,8 +46,26 @@ const Home = () => {
                     />
 
                     <Typography variant='body1' sx={styles.avatarText}>
-                        Based in Philly, US. SWE in the making.
+                        Based in Philly, US.<br />SWE in the making.
                     </Typography>
+
+                    <ButtonBase
+                        component={Link}
+                        to="https://github.com/nghiantm"
+                        disableRipple
+                        target="_blank"
+                    >
+                        <GitHubIcon sx={styles.icon}/>
+                    </ButtonBase>
+
+                    <ButtonBase
+                        component={Link}
+                        to="https://www.linkedin.com/in/nghiantm/"
+                        disableRipple
+                        target="_blank"
+                    >
+                        <LinkedInIcon sx={styles.icon}/>
+                    </ButtonBase>
                 </Grid>
             </Grid>
         </>
