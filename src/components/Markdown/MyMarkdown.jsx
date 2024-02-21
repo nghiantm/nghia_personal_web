@@ -28,6 +28,10 @@ const MyMarkdown = ({ content }) => {
                         src={[src]}
                         width="100%"
                     />
+                },
+                ul(props) {
+                    const {children, ...rest} = props;
+                    return <ul style={{paddingLeft: '30px'}}>{children}</ul>
                 }
             }}
         >

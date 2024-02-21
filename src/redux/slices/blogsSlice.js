@@ -6,7 +6,7 @@ const blogsSlice = createSlice({
         loading: false,
         blogs: [],
         error: null,
-        portfolio: ''
+        portfolio: []
     },
     reducers: {
         getBlogsStart(state) {

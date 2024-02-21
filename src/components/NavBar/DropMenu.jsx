@@ -58,6 +58,7 @@ const DropMenu = () => {
                     display: { xs: 'block', sm: 'none' },
                 }}
             >
+                {/*
                 <MenuItem 
                     component={Link}
                     to='/blog'
@@ -65,6 +66,7 @@ const DropMenu = () => {
                 >
                     <Typography variant='h3' sx={styles.menuText}>Blog</Typography>
                 </MenuItem>
+                */}
 
                 <MenuItem 
                     component={Link}

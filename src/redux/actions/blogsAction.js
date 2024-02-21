@@ -1,4 +1,4 @@
-import { getAllPost } from "../../api/apiClient";
+import { getAllPost, getAllPortfolio } from "../../api/apiClient";
 import { 
     getBlogsFailure, 
     getBlogsStart, 
@@ -21,8 +21,8 @@ export const getBlogsAsync = () => async (dispatch) => {
 export const getPortfolioAsync = () => async (dispatch) => {
     try {
         dispatch(getPortfolioStart());
-        const data = await getAllPost();
-        dispatch(getPortfolioSuccess(data[0].content));
+        const data = await getAllPortfolio();
+        dispatch(getPortfolioSuccess(data));
     } catch (err) {
         dispatch(getPortfolioFailure(err.message));
     }
