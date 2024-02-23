@@ -17,8 +17,6 @@ const LoggedOutView = ({pathname}) => {
         dispatch(toggleTheme());
     }
 
-    console.log(pathname);
-
     // light or dark mode
     const mode = useSelector((theme) => theme.theme);
 

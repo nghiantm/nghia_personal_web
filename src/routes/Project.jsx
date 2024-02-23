@@ -19,11 +19,10 @@ const Project = () => {
         : portfolio.filter(item => item.tags.includes(selectedTag));
 
     useEffect(() => {
-        if (!portfolio.length)
-            dispatch(getPortfolioAsync());
+        dispatch(getPortfolioAsync());
     }, [])
 
-    return (!loading && filteredPortfolio.length && filteredPortfolio[0]) ? (
+    return (!loading && filteredPortfolio && filteredPortfolio[0]) ? (
         <>
             <MyMarkdown content={"## Welcome to my \`portfolio\`!"}/>
             <Typography variant="body1">My name is Nghia Nguyen, and this is what I'm doing:</Typography>
