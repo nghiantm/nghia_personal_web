@@ -1,8 +1,34 @@
-# React + Vite
+# Nghia Nguyen Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal website
 
-Currently, two official plugins are available:
+## Content
+1. [Getting Started](#getting-started)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+   - [Available Scripts](#available-scripts)
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+- [Node.js](https://nodejs.org/en) (v21.6.1)
+- [Yarn](https://yarnpkg.com/) (v1.22.19)
+
+### Installation
+```bash
+git clone https://github.com/nghiantm/nghia_personal_web.git
+cd nghia_personal_web
+yarn
+```
+
+### Available Scripts
+```bash
+# Start the development server.
+yarn dev
+# Build the project for production.
+yarn build
+# Serve the production build locally.
+yarn serve
+```
+Refer to the [Vite documentation](https://vitejs.dev/) for more scripts and configuration options.
+
+
