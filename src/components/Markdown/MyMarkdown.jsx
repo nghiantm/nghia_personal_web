@@ -1,4 +1,4 @@
-import { Link, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { Img } from "react-image";
 import Markdown from "react-markdown"
 import rehypeHighlight from 'rehype-highlight';
@@ -24,10 +24,12 @@ const MyMarkdown = ({ content }) => {
                 },
                 img(props) {
                     const {src, alt, ...rest} = props;
-                    return <Img 
-                        src={[src]}
-                        width="100%"
-                    />
+                    return <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+                        <Img 
+                            src={[src]}
+                            width="90%"
+                        />
+                    </Box>
                 },
                 ul(props) {
                     const {children, ...rest} = props;
