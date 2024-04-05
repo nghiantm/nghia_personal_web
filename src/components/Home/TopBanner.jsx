@@ -15,8 +15,8 @@ const TopBanner = ({ theme }) => {
             alignItems: "center",
             height: "100vh",
             overflow: "hidden",
-            [theme.breakpoints.up("lg")]: {
-                height: "95vh"
+            [theme.breakpoints.up("md")]: {
+                height: "92vh"
             },
         },
         welcomeText: {
