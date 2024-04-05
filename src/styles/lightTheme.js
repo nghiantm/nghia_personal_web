@@ -23,6 +23,11 @@ let lightTheme = createTheme({
         fontSize: '1rem',
         fontWeight: 400
       },
+      caption: {
+        fontSize: '0.875rem',
+        fontStyle: 'italic',
+        lineHeight: 0
+      }
   },
   components: {
     MuiLink: {

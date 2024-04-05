@@ -36,15 +36,12 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container disableGutters maxWidth={'lg'} sx={styles.box}> 
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/blog' element={<Blog />}/>
-            <Route path='/project' element={<Project />}/>
-          </Routes>
-      </Container>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/blog' element={<Blog />}/>
+        <Route path='/project' element={<Project />}/>
+      </Routes>
     </ThemeProvider>
   )
 }

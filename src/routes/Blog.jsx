@@ -4,6 +4,7 @@ import { getBlogsAsync } from "../redux/actions/blogsAction";
 // styles
 import MyMarkdown from "../components/Markdown/MyMarkdown";
 import MyLoading from "../components/MyLoading";
+import BlogCard from "../components/BlogCard/BlogCard";
 
 const Blog = () => {
     const loading = useSelector((state) => state.blog.loading);
@@ -16,7 +17,20 @@ const Blog = () => {
     }, [])
 
     return (!loading && blogs[0]) ? (
-        <MyMarkdown content={blogs[0].content}/>
+        <>
+            <MyMarkdown content={"## " + "Welcome to my `blog`!"}/>
+            {
+                blogs.map((item, index) => {
+                    console.log(item);
+                    return (
+                        <BlogCard 
+                            key={index}
+                            blogPost={item}
+                        />
+                    )
+                })
+            }
+        </>
     ) : <MyLoading />;
 }
 
