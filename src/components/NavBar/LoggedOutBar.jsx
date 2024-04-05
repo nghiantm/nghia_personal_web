@@ -53,7 +53,11 @@ const LoggedOutView = ({pathname}) => {
         },
         name: {
             color: "#878787",
-            ml: "1rem"
+            ml: "1rem",
+            transition: 'color 0.3s ease',
+            "&:hover": {
+                color: "#fff",
+            }
         }
     }
 

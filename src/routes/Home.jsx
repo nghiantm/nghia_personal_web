@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import homeBackground from "../assets/images/homeBackground.webp"
 
-
 const Home = () => {
     const theme = useTheme();
 
@@ -37,7 +36,11 @@ const Home = () => {
         downArrow: {
             fontSize: "3rem",
             mb: "3rem",
-            color: "#fff",
+            color: "#878787",
+            transition: 'color 0.3s ease',
+            "&:hover": {
+                color: "#fff"
+            },
             cursor: "pointer"
         },
         span: {
@@ -59,12 +62,19 @@ const Home = () => {
         icon: {
             mr: '1rem',
         },
+        container: {
+            px: '2.5rem',
+            [theme.breakpoints.between('md', 'lg')]: {
+                px: '7.5rem'
+            },
+        }
     }
 
     return (
         <>
             <Box sx={styles.imageBox}>
                 <Typography variant="h1" sx={styles.welcomeText}>Welcome. <br/>This is Nghia.</Typography>
+                
                 <ScrollLink to="profile" smooth duration={1000} onClick={(e) => e.preventDefault()}>
                     <KeyboardDoubleArrowDownIcon 
                         sx={styles.downArrow}
@@ -74,7 +84,7 @@ const Home = () => {
 
             <section id="profile">
                 <CssBaseline /> {/* Allow for theme control */}
-                <Container disableGutters maxWidth="lg" id="profile">
+                <Container disableGutters maxWidth="lg" sx={styles.container}>
                     <Box height={"100vh"}>
                         <Grid container justifyContent={'flex-start'}>
                             <Grid item xs={12} sm={9} md={7} sx={styles.introItem}>
